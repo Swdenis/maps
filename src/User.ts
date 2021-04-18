@@ -2,6 +2,12 @@ import faker from 'faker'
 
 export class User {
 
+    name: string
+    location: {
+        lat: number,
+        lng: number
+    }
+
     constructor() {
         this.name = faker.name.firstName()
         this.location = {
@@ -9,9 +15,8 @@ export class User {
             lng: parseFloat(faker.address.longitude())
         }
     }
-    name: string
-    location: {
-        lat: number,
-        lng: number
+
+    markerContent(): string {
+        return(`User Name is ${this.name}`)
     }
 }
